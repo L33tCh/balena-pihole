@@ -14,9 +14,7 @@ services:
       - 'dnsmasq_config:/etc/dnsmasq.d'
     dns:
       - '127.0.0.1'
-      - '1.1.1.1'
-    ports:
-      - '80:80'
+      - '8.8.8.8'
     network_mode: host
 
   # set pihole DNS1 and DNS2 service variables to 127.0.0.1#5053 to use dnscrypt-proxy for upstream DNS
