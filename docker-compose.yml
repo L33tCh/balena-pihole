@@ -13,14 +13,16 @@ services:
       - 'pihole_config:/etc/pihole'
       - 'dnsmasq_config:/etc/dnsmasq.d'
     dns:
-      - '127.0.0.1'
+      - '192.168.0.1'
       - '8.8.8.8'
+    ports:
+      - '80:80'
     network_mode: host
 
   # set pihole DNS1 and DNS2 service variables to 127.0.0.1#5053 to use dnscrypt-proxy for upstream DNS
-  dnscrypt-proxy:
-    build: ./dnscrypt-proxy
-    volumes:
-      - 'dnscrypt_config:/config'
-    ports:
-      - '5053:5053/udp'
+  #dnscrypt-proxy:
+  #  build: ./dnscrypt-proxy
+  #  volumes:
+  #    - 'dnscrypt_config:/config'
+  #  ports:
+  #    - '5053:5053/udp'
